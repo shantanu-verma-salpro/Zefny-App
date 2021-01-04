@@ -1,0 +1,80 @@
+.myHeader {
+    background: #001529;
+}
+
+.myHeader span {
+    color: white
+}
+
+.side-actions {
+    height: 100%;
+    text-align: center;
+    margin: auto;
+    padding: 20px 0px;
+    width: 60px;
+}
+
+.post-c {
+    -webkit-flex: auto;
+    flex: auto;
+    min-height: 0;
+    padding: 50px;
+    background: #07233c;
+    font-style: normal;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.5;
+
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #ffffffbd;
+    font-weight: 600;
+
+}
+
+
+.foot-c {
+    padding: 24px 50px;
+    color: rgba(242, 242, 242, 0.85);
+    font-size: 14px;
+    background: #001529;
+}
+
+
+.cat-p {
+
+    margin-bottom: 30px;
+    padding: 0;
+    background: #0a3155;
+
+}
+
+.cat-p a h4 {
+    color: white;
+}
+
+.left-card {
+    display: inline-block;
+    font-size: 4em;
+    padding-left: 20px;
+}
+
+.right-card {
+    display: inline-block;
+padding: 20px;
+vertical-align: baseline;
+
+
+}
+
+.cat-p span {
+    color: #ffffffa3;
+    font-weight: 100;
+}
+
+
+.cat-head {
+    color: black;
+    font-size: 18px !important;
+}

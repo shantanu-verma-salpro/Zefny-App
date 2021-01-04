@@ -1,0 +1,25 @@
+.actions {
+    text-align: center;
+    margin: 10px auto;
+}
+.ac-layout{
+  background: #f0f0f0;
+}
+.foot-c {
+    padding: 24px 50px;
+    color: rgba(242, 242, 242, 0.85);
+    font-size: 14px;
+    background: #455368;
+}
+.editor {
+    padding-bottom: 1px;
+    position: relative;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin: 20px;
+}

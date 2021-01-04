@@ -99,8 +99,8 @@ export default function Home({ data }) {
             src={`/${category}.jpg`}
             alt={title}
             layout="responsive"
-            height="270"
-            width="400"
+            height="268"
+            width="398"
           />
         </Card>
       </Col>
@@ -152,7 +152,7 @@ export default function Home({ data }) {
           top: 0,
           left: 0
         }}
-      > <div className="logo" >ts</div>
+      > <div className="logo" >zf</div>
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                <SubMenu key="sub1" icon={<BookOutlined />} title="Category">
                {categories.map((m,idx)=>(

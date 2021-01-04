@@ -15,7 +15,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 import {useState} from 'react';
 
-import styles from '../../components/BLogPosts.module.css'
+import styles from '../../components/BlogPosts.module.css'
 
 export default function Home({ movies }) {
   const router = useRouter();

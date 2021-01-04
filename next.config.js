@@ -6,15 +6,14 @@ const runtimeCaching = require('next-pwa/cache')
 module.exports = withPlugins(
     [
         [withPreact, { /* plugin config here ... */ }],
-        [withPWA, {
-            pwa: {
-                dest: 'public',
-                runtimeCaching,
-            }
-        }],
+        [withPWA, {}],
     ], {
         images: {
             domains: ['lh3.googleusercontent.com'],
         },
+        pwa: {
+            dest: 'public',
+            runtimeCaching,
+        }
     }
 );

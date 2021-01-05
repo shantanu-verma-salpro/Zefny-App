@@ -15,7 +15,9 @@ import { DownloadOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 import {useState} from 'react';
 
-import styles from '../../components/BlogPosts.module.css'
+import styles from './../../components/BLogPosts.module.css'
+import dynamic from "next/dynamic";
+const PSidebar = dynamic(()=>{return import ("../../components/PostMenu")},{ssr:false});
 
 export default function Home({ movies }) {
   const router = useRouter();
@@ -34,6 +36,15 @@ var blob = new Blob([movies[0].content], {type: 'text/plain'});
 link.href = window.URL.createObjectURL(blob);
 link.click();
     }
+    const categories = ["Fashion",
+    "Travel",
+    "Music",
+    "Lifestyle",
+    "Fitness",
+    "DIY",
+    "Sports",
+    "Developers",
+    "General"] ;
     return (
       <div>
         <NextSeo
@@ -58,21 +69,7 @@ link.click();
     subTitle=""
   /> 
       <Layout>
-<Sider style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "sticky",
-          top: 0,
-          left: 0,
-          minWidth:"60px"
-        }} width="60"
-      >
- <div className={styles["side-actions"]}>
-<Button onClick={downloadFile} type="primary" icon={<DownloadOutlined />} size="large">
-          
-        </Button>
-        </div>
-      </Sider>
+<PSidebar categories={categories} download={downloadFile}/>
         <Content className={styles["post-c"]}>
         <Title level={1}>{title}</Title>
         <Title level={5}>Posted in <Link href={`/category/${category}`}><a><b>{category}</b></a></Link> by <b>{author}</b> on <b>{dateCreated}</b></Title>

@@ -1,0 +1,20 @@
+.navbar {
+  background-color: #02284c;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+justify-content: space-around;
+z-index:2000;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}

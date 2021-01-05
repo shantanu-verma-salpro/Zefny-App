@@ -2,11 +2,12 @@ import Head from "next/head";
 import Link from "next/link";
 
 import getBlogIndex from "../util/blogFetch";
-import { useState, useEffect } from "react";
+import { useState, useEffect ,useLayoutEffect} from "react";
 import { signIn, signOut, useSession } from "next-auth/client";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
-
+import dynamic from "next/dynamic";
+const Sidebar = dynamic(()=>{return import ("../components/Menu")},{ssr:false});
 import {
   UserOutlined,
   AlignLeftOutlined,
@@ -38,11 +39,13 @@ const { Header, Sider, Content, Footer } = Layout;
 const { Text, Title } = Typography;
 const { SubMenu } = Menu;
 
+
+
 export default function Home({ data }) {
   if(!data) return <p>Loading..</p>;
   const [session, loading] = useSession();
   const [page_num, setPage] = useState(0);
-  const [collapsed, setCollapsed] = useState(true);
+  
   const page_size = 6;
   const categories = ["Fashion",
     "Travel",
@@ -99,8 +102,8 @@ export default function Home({ data }) {
             src={`/${category}.jpg`}
             alt={title}
             layout="responsive"
-            height="268"
-            width="398"
+            height="270"
+            width="400"
           />
         </Card>
       </Col>
@@ -141,35 +144,7 @@ export default function Home({ data }) {
         }}
       />
         <Layout style={{ minHeight: "100vh" }}>
-          <Sider
-        collapsible={true} 
-        collapsed={collapsed}
-        onCollapse={( c ,t) => {setCollapsed(c)}}
-        style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "sticky",
-          top: 0,
-          left: 0
-        }}
-      > <div className="logo" >zf</div>
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-               <SubMenu key="sub1" icon={<BookOutlined />} title="Category">
-               {categories.map((m,idx)=>(
-                <Menu.Item key={idx+1}>
-              <Link href={`/category/${m}`}><a>{m}</a></Link>
-            </Menu.Item>
-                ))}
-               </SubMenu>
-            
-            <Menu.Item key="2" icon={<MessageOutlined />}>
-              Contact Us
-            </Menu.Item>
-            <Menu.Item key="3" icon={<SearchOutlined />}>
-              Search
-            </Menu.Item>
-          </Menu>
-          </Sider>
+        <Sidebar categories={categories}/>
           <Layout className="site-layout">
             <Header
               className="site-layout-background headr"
@@ -317,6 +292,7 @@ export default function Home({ data }) {
         </Layout>
       <style global jsx>
         {`
+          
           .trigger {
             font-size: 18px;
             line-height: 64px;

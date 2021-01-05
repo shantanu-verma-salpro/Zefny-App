@@ -15,7 +15,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 import {useState} from 'react';
 
-import styles from './../../components/BLogPosts.module.css'
+import styles from './../../components/BlogPosts.module.css'
 import dynamic from "next/dynamic";
 const PSidebar = dynamic(()=>{return import ("../../components/PostMenu")},{ssr:false});
 

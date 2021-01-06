@@ -66,7 +66,7 @@ link.click();
  <Layout className="site-layout">
       <PageHeader
     className={styles["myHeader"]}
-    onBack={() => router.push('/')}
+    onBack={() => router.back()}
     title="Back"
     subTitle=""
   /> 

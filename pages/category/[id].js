@@ -52,7 +52,7 @@ export default function Category({ id }) {
 <Layout className="site-layout">
    <PageHeader
     className={styles["myHeader"]}
-    onBack={() => router.push('/')}
+    onBack={() => router.back()}
     title="Back"
     subTitle=""
   /> 

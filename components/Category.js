@@ -46,7 +46,7 @@ export default function GetPosts(props) {
                       </div>
                     
         		))}
-        	<Button type="primary" onClick={props.handler}>Next</Button>
+        	<Button className={styles.nextbtn} onClick={props.handler}>Next</Button>
         	</div>
 
     );

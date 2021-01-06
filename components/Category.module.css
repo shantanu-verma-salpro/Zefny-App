@@ -57,19 +57,31 @@ flex-flow: row;
 }
 
 .cat-p a h4 {
-    color: white;
+    color: #fff;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
 }
-
+.nextbtn{
+display: flex;
+margin: 0 auto;
+}
 .left-card {
     display: inline-block;
     
    
 }
+.left-card img{
+    object-fit: cover;
+}
 
 .right-card {
-    display: inline-block;
-padding: 20px;
-vertical-align: baseline;
+    display: flex;
+padding: 0px 20px;
+align-self: center;
+text-overflow: ellipsis;
+overflow: hidden;
+flex-direction: column;
 
 
 }

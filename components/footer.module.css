@@ -1,0 +1,14 @@
+.footers{
+	padding: 24px 50px;
+color: rgba(255, 255, 255, 0.85)  !important;
+font-size: 14px;
+background: #00162b !important;
+text-align: center;
+font-weight: 500  !important;
+
+}
+@media screen and (max-width: 640px) {
+  .footers{
+    margin-bottom: 50px;
+  }
+}

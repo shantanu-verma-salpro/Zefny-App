@@ -32,7 +32,11 @@
     font-weight: 600;
 
 }
-
+@media screen and (max-width: 640px) {
+  .post-c{
+    padding:15px;
+  }
+}
 
 .foot-c {
     padding: 24px 50px;
@@ -47,7 +51,9 @@
     margin-bottom: 30px;
     padding: 0;
     background: #0a3155;
-
+display: flex;
+align-items: center;
+flex-flow: row;
 }
 
 .cat-p a h4 {
@@ -56,8 +62,8 @@
 
 .left-card {
     display: inline-block;
-    font-size: 4em;
-    padding-left: 20px;
+    
+   
 }
 
 .right-card {
@@ -71,6 +77,7 @@ vertical-align: baseline;
 .cat-p span {
     color: #ffffffa3;
     font-weight: 100;
+    font-size:15px;
 }
 
 

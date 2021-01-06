@@ -7,6 +7,7 @@ import { signIn, signOut, useSession } from "next-auth/client";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import Footers from "../components/Footers";
 const Sidebar = dynamic(()=>{return import ("../components/Menu")},{ssr:false});
 import {
   UserOutlined,
@@ -287,7 +288,7 @@ export default function Home({ data }) {
                   ))}
               </Row>
             </Content>
-            <Footer style={{ textAlign: "center" }}>Created by Cmaster</Footer>
+            <Footers/>
           </Layout>
         </Layout>
       <style global jsx>

@@ -11,7 +11,7 @@ import { PageHeader,Layout,Button} from 'antd';
 const {  Footer, Sider, Content } = Layout;
 import { Typography } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
-
+import Footers from "../../components/Footers";
 const { Title } = Typography;
 import {useState} from 'react';
 
@@ -62,25 +62,27 @@ link.click();
 
         
  <Layout  style={{ minHeight: '100vh' }} >
+ <PSidebar categories={categories} download={downloadFile}/>
+ <Layout className="site-layout">
       <PageHeader
     className={styles["myHeader"]}
     onBack={() => router.push('/')}
     title="Back"
     subTitle=""
   /> 
-      <Layout>
-<PSidebar categories={categories} download={downloadFile}/>
+      
+
         <Content className={styles["post-c"]}>
         <Title level={1}>{title}</Title>
         <Title level={5}>Posted in <Link href={`/category/${category}`}><a><b>{category}</b></a></Link> by <b>{author}</b> on <b>{dateCreated}</b></Title>
         <br/><br/>
          <div className={styles["markdown-body"]} dangerouslySetInnerHTML={{ __html: result }}></div>
          </Content>
-     
+     <Footers/>
         
       </Layout>
    
-      <Footer className={styles["foot-c"]}>Footer</Footer>
+      
     </Layout>
         
      

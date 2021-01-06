@@ -13,9 +13,9 @@ export default function GetPosts(props) {
     const { id, limit, page } = props;
     const q = `/api/category?category=${id}&limit=${limit}&page=${page}`;
     const { data, error } = useSWR(q, fetcher);
-    if (error) return <div>failed to load</div>;
+    if (error) return <div>failed to load :(</div>;
     if (!data) return <div><Skeleton active /><Skeleton active /></div>;
-    if(data.data.length===0) return <div>EOP <Button type="primary" onClick={props.homeHandler}>Initial Page</Button></div>;
+    if(data.data.length===0) return <div> <Button type="primary" onClick={props.homeHandler}>Initial Page</Button></div>;
     return (
         <div>
         	{data.data.map((m)=>(

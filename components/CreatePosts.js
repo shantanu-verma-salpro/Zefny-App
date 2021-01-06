@@ -7,6 +7,7 @@ import "react-markdown-editor-lite/lib/index.css";
 import Link from "next/link";
 import { Button,Row, Col ,Space,Input,message,Dropdown,Menu,Layout,PageHeader, Avatar  ,Tooltip} from 'antd';
 const { Header, Footer, Content } = Layout;
+import Footers from "./Footers";
 import {
   DownOutlined 
 } from '@ant-design/icons';
@@ -155,7 +156,7 @@ const menu = (
       </form>
         </Content>
       </Layout>
-      <Footer className={styles["foot-c"]}>Footer</Footer>
+      <Footers/>
     </Layout>
 
 

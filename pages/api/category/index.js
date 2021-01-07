@@ -12,7 +12,6 @@ export default async function handler(req, res) {
             res.status(200).json({ data: datas,success:true });
         } else throw new Error("Unautharized");
     } catch (e) {
-    	console.log(e);
         res.status(401).end();
     }
 }

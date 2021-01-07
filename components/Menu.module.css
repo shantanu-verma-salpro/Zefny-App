@@ -18,3 +18,12 @@ z-index:2000;
   text-decoration: none;
   font-size: 17px;
 }
+.navbar a:hover {
+  background: #02213e;
+}
+.logo {
+  height: auto;
+  background: transparent;
+  margin: 16px;
+  text-align: center;
+}

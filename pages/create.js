@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Link from "next/link";
 import { useSession } from "next-auth/client";
 import dynamic from "next/dynamic";
 import { Skeleton } from 'antd';

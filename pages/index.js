@@ -1,19 +1,18 @@
-import Head from "next/head";
 import Link from "next/link";
 
 import getBlogIndex from "../util/blogFetch";
-import { useState, useEffect ,useLayoutEffect} from "react";
+import { useState, useEffect } from "react";
 import { signIn, signOut, useSession } from "next-auth/client";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Footers from "../components/Footers";
-const Sidebar = dynamic(()=>{return import ("../components/Menu")},{ssr:false});
+import { useRouter } from 'next/router'
+
+
+const Sidebar = dynamic(() => { return import("../components/Menu") }, { ssr: false });
 import {
   UserOutlined,
-  AlignLeftOutlined,
-  MessageOutlined,
-  SearchOutlined,
   ExportOutlined,
   PlusOutlined,
   RightOutlined,
@@ -36,17 +35,16 @@ import {
   message,
 } from "antd";
 
-const { Header, Sider, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 const { Text, Title } = Typography;
-const { SubMenu } = Menu;
 
 
 
 export default function Home({ data }) {
-  if(!data) return <p>Loading..</p>;
+  if (!data) return <p>Loading..</p>;
   const [session, loading] = useSession();
   const [page_num, setPage] = useState(0);
-  
+  const router = useRouter();
   const page_size = 6;
   const categories = ["Fashion",
     "Travel",
@@ -56,7 +54,7 @@ export default function Home({ data }) {
     "DIY",
     "Sports",
     "Developers",
-    "General"] ;
+    "General"];
   const paginate = () => {
     return data.slice(page_num * page_size, page_num * page_size + page_size);
   };
@@ -82,7 +80,17 @@ export default function Home({ data }) {
       setPage(page_num - 1);
     }
   }
- 
+  function notSignin() {
+    if (!loading) {
+      if (!session)
+        message.error("Signin first!");
+      else
+        if (typeof window !== 'undefined') {
+          router.push('/create');
+        }
+    }
+
+  }
 
   function i_card(slug, title, author, date, category) {
     return (
@@ -97,7 +105,7 @@ export default function Home({ data }) {
             </div>
           }
           hoverable={true}
-          
+
         >
           <Image
             src={`/${category}.jpg`}
@@ -144,47 +152,43 @@ export default function Home({ data }) {
           site_name: "Zefny",
         }}
       />
-        <Layout style={{ minHeight: "100vh" }}>
-        <Sidebar categories={categories}/>
-          <Layout className="site-layout">
-            <Header
-              className="site-layout-background headr"
-              style={{ padding: 0 }}
-            >
-              <Row className="">
-                <Col flex={1}>
-                 <Divider type="vertical" />
-                  <Button type="primary">
-                    <Link href="/create">
-                      <a>
-                        <PlusOutlined /> Create
-                      </a>
-                    </Link>
-                  </Button>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Sidebar categories={categories} />
+        <Layout className="site-layout">
+          <Header
+            className="site-layout-background headr"
+            style={{ padding: 0 }}
+          >
+            <Row className="">
+              <Col flex={1}>
+                <Divider type="vertical" />
+                <Button type="primary" onClick={notSignin}>
+                  <PlusOutlined /> Create
+                </Button>
 
-                </Col>
-                <Col flex={4}>
-                  <div className="lol">
-                    {session ? (
-                      <div>
+              </Col>
+              <Col flex={4}>
+                <div className="lol">
+                  {session ? (
+                    <div>
                       <Tooltip title={session.user.name}>
-                          <Avatar
-                            style={{ backgroundColor: "rgb(0, 82, 157)" }}
-                            icon={<UserOutlined />}
-                          />
-                        </Tooltip>
-                         <Divider type="vertical" />
-                        <Button
-                          onClick={signOut}
-                          type="primary"
-                          icon={<ExportOutlined />}
-                        >
-                          Signout
+                        <Avatar
+                          style={{ backgroundColor: "rgb(0, 82, 157)" }}
+                          icon={<UserOutlined />}
+                        />
+                      </Tooltip>
+                      <Divider type="vertical" />
+                      <Button
+                        onClick={signOut}
+                        type="primary"
+                        icon={<ExportOutlined />}
+                      >
+                        Signout
                         </Button>
-                       
-                        
-                      </div>
-                    ) : (
+
+
+                    </div>
+                  ) : (
                       <Button
                         type="primary"
                         onClick={signIn}
@@ -193,104 +197,104 @@ export default function Home({ data }) {
                         Signin
                       </Button>
                     )}
-                  </div>
-                </Col>
-              </Row>
-            </Header>
-            <Content
-              className="site-layout-background"
-              style={{
-                margin: "24px 16px",
-                padding: 24,
-                minHeight: 280,
-              }}
-            >
-              <Title className="pop-heading" level={4}>
-                Recently Published{" "}
-              </Title>
-              <div className="page-d">
-                <Space>
-                  <Button className="home-pag"
-                    onClick={() => prev_page()}
-                    icon={<LeftOutlined />}
-                  ></Button>
-                  <Button className="home-pag"
-                    onClick={() => next_page()}
-                    icon={<RightOutlined />}
-                  ></Button>
-                </Space>
-              </div>
+                </div>
+              </Col>
+            </Row>
+          </Header>
+          <Content
+            className="site-layout-background"
+            style={{
+              margin: "24px 16px",
+              padding: 24,
+              minHeight: 280,
+            }}
+          >
+            <Title className="pop-heading" level={4}>
+              Recently Published{" "}
+            </Title>
+            <div className="page-d">
+              <Space>
+                <Button className="home-pag"
+                  onClick={() => prev_page()}
+                  icon={<LeftOutlined />}
+                ></Button>
+                <Button className="home-pag"
+                  onClick={() => next_page()}
+                  icon={<RightOutlined />}
+                ></Button>
+              </Space>
+            </div>
 
-              <div className="site-card-wrapper">
-                <Row gutter={16}>{createCards(0)}</Row>
-                <Row gutter={16}>{createCards(1)}</Row>
-              </div>
-              <br />
-              <br />
-              <Title className="pop-heading" level={4}>
-                Developers
+            <div className="site-card-wrapper">
+              <Row gutter={16}>{createCards(0)}</Row>
+              <Row gutter={16}>{createCards(1)}</Row>
+            </div>
+            <br />
+            <br />
+            <Title className="pop-heading" level={4}>
+              Developers
               </Title>
-              <Row gutter={16}>
-               {data
-                  .filter((el) => el.category == "Developers")
-                  .slice(0, 2)
-                  .map((m) => (
-                    <Col md={8} xs={24}>
+            <Row gutter={16}>
+              {data
+                .filter((el) => el.category == "Developers")
+                .slice(0, 2)
+                .map((m) => (
+                  <Col md={8} xs={24}>
                     <div className="cat-p">
-                    <div className="left-card"><BookOutlined/></div>
-                    <div className="right-card">
-                      <Link href={`/posts/${m.slug}`}>
-                        <a>
-                          <Title className="cat-head" level={4}>
-                            {m.title.slice(0,25)}...
+                      <div className="left-card"><BookOutlined /></div>
+                      <div className="right-card">
+                        <Link href={`/posts/${m.slug}`}>
+                          <a>
+                            <Title className="cat-head" level={4}>
+                              {m.title.slice(0, 25)}...
                           </Title>
-                        </a>
-                      </Link>
-                      <Text className="pop-desc">
-                        {" "}
-                        <b>{m.author}</b> on{" "}
-                        <b>{new Date(m.dateCreated).toDateString()}</b>
-                      </Text>
+                          </a>
+                        </Link>
+                        <Text className="pop-desc">
+                          {" "}
+                          <b>{m.author}</b> on{" "}
+                          <b>{new Date(m.dateCreated).toDateString()}</b>
+                        </Text>
                       </div>
-                      </div>
-                    </Col>
-                  ))}
-              </Row>
-              <br />
-              <br />
-              <Title className="pop-heading" level={4}>
-                Lifestyle
+                    </div>
+                  </Col>
+                ))}
+            </Row>
+            <br />
+            <br />
+            <Title className="pop-heading" level={4}>
+              Lifestyle
               </Title>
-              <Row gutter={16}>
-                {data
-                  .filter((el) => el.category == "Lifestyle")
-                  .slice(0, 2)
-                  .map((m) => (
-                    <Col md={8} xs={24}>
+            <Row gutter={16}>
+              {data
+                .filter((el) => el.category == "Lifestyle")
+                .slice(0, 2)
+                .map((m) => (
+                  <Col md={8} xs={24}>
                     <div className="cat-p">
-                    <div className="left-card"><BookOutlined/></div>
-                    <div className="right-card">
-                      <Link href={`/posts/${m.slug}`}>
-                        <a>
-                          <Title className="cat-head" level={4}>
-                            {m.title.slice(0,25)}...
+                      <div className="left-card"><BookOutlined /></div>
+                      <div className="right-card">
+                        <Link href={`/posts/${m.slug}`}>
+                          <a>
+                            <Title className="cat-head" level={4}>
+                              {m.title.slice(0, 25)}...
                           </Title>
-                        </a>
-                      </Link>
-                      <Text className="pop-desc">
-                        {" "}
-                        <b>{m.author}</b> on{" "}
-                        <b>{new Date(m.dateCreated).toDateString()}</b>
-                      </Text>
+                          </a>
+                        </Link>
+                        <Text className="pop-desc">
+                          {" "}
+                          <b>{m.author}</b> on{" "}
+                          <b>{new Date(m.dateCreated).toDateString()}</b>
+                        </Text>
                       </div>
-                      </div>
-                    </Col>
-                  ))}
-              </Row>
-            </Content>
-            <Footers/>
-          </Layout>
+                    </div>
+                  </Col>
+                ))}
+            </Row>
+          </Content>
+          <Footers />
         </Layout>
+      </Layout>
       <style global jsx>
         {`
           
@@ -393,11 +397,7 @@ font-size: 18px !important;
             height: auto;
             background: transparent;
             margin: 16px;
-            color: #ffffffd9;
-            font-size: 28px;
-            font-family: serif;
             text-align: center;
-            border: 1px solid #ffffff52;
           }
           .date-c {
             font-size: 14px;
@@ -433,6 +433,6 @@ export async function getStaticProps() {
   const movies = await getBlogIndex();
   return {
     props: { data: JSON.parse(JSON.stringify(movies)) },
-    revalidate: 10,
+    revalidate: 5,
   };
 }

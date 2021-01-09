@@ -23,6 +23,8 @@ This is simple article writing platform for learning purpose using next.js.
  - Ant Design
  - Limax
  - Hexoid
+ - markdown-it
+ 
  ### Environment variables - 
  
 

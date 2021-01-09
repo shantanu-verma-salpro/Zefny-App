@@ -1,5 +1,7 @@
-# Zefny
 
+
+![logo](public/icons/icon-512x512.png)
+# Zefny
 This is simple article writing platform for learning purpose using next.js.
 ### Features
 

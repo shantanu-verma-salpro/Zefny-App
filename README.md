@@ -11,8 +11,8 @@ This is simple article writing platform for learning purpose using next.js.
 ### Features
 
  - [x] A clean UI for recent articles
- - [x] Authentication using nextjs-auth
- - [x] Searching using MongoDB text search
+ - [x] Authentication
+ - [x] Search
  - [x] Categories
  - [x] Markdown Editor for creating articles
  - [x] Download Articles

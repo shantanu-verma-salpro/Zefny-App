@@ -26,14 +26,14 @@ This is simple article writing platform for learning purpose using next.js.
 	AUTH0_CLIENT_SECRET = 
 initialise with your values in .env.local
 ### How to Run
-First run `npm install`
-Add environment variables
-Development server - `npm run dev`
-Production server - `npm run build`
+- First run `npm install`
+- Add environment variables
+- Development server - `npm run dev`
+- Production server - `npm run build`
 
 ### Deploy
-Can be deployed using vercel.com 
-just import this project 
+- Can be deployed using vercel.com 
+- just import this project 
 
 
 

@@ -8,6 +8,7 @@
 # Zefny
 
 This is simple article writing platform for learning purpose using next.js.
+Demo - [](https://zefny.vercel.app)
 ### Features
 
  - [x] A clean UI for recent articles

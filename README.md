@@ -16,6 +16,8 @@ This is simple article writing platform for learning purpose using next.js.
  - [x] Categories
  - [x] Markdown Editor for creating articles
  - [x] Download Articles
+ - [x] PWA
+ - [x] Responsive
  ### Technologies/Frameworks/Libraries used
  - Next.js
  - Preact

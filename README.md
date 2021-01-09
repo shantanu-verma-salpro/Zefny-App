@@ -3,9 +3,10 @@
 
 <p align="center">
   <img width="200" height="200" src="public/icons/icon-512x512.png">
+# Zefny
 </p>
 
-# Zefny
+
 This is simple article writing platform for learning purpose using next.js.
 ### Features
 

@@ -38,7 +38,7 @@ export default function CreatePosts({ user }) {
 
   function handleTitle(event) {
     let ne = event.target.value.replace(/\s+/g, " ").trim();
-    if (ne.length > 70) setTErr("Title length should be atmost 70 chars");
+    if (ne.length > 60) setTErr("Title length should be atmost 60 chars");
     else if (ne.length > 10) {
       setTErr("");
       setT(ne);
@@ -49,7 +49,7 @@ export default function CreatePosts({ user }) {
 
   function handleEditorChange({ html, text }) {
     if (text.length > 7500) {
-      setErr("Exceeded content limit / 1500");
+      setErr("Exceeded content limit / 7500");
     } else {
       setErr("");
       setC(text);

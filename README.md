@@ -1,53 +1,56 @@
 
+# Zefny 📝
 
+Zefny is a simplistic article writing platform crafted for learning purposes, powered by Next.js.
 
-<p align="center">
-  <img width="200" height="200" src="public/icons/icon-512x512.png">
-</p>
+## Demo 🚀
+Check it out [here](https://zefny.vercel.app).
 
-# Zefny
+## Features ✨
+- Clean UI showcasing recent articles
+- User Authentication
+- Article Search
+- Categorized Articles
+- Markdown Editor for creative writing
+- Downloadable Articles
+- Progressive Web App (PWA) functionality
+- Responsive Design
 
-This is simple article writing platform for learning purpose using next.js.
+## Tech Stack 🛠️
+- [Next.js](https://nextjs.org/)
+- [Preact](https://preactjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Ant Design](https://ant.design/)
+- [Limax](https://github.com/lovell/limax)
+- [Hexoid](https://github.com/lukeed/hexoid)
+- [markdown-it](https://github.com/markdown-it/markdown-it)
 
-Demo - [https://zefny.vercel.app](https://zefny.vercel.app)
+## Getting Started 🏁
+Install dependencies:
+```bash
+npm install
+```
+Set up your environment variables in `.env.local`:
 
-### Features
+```
+MONGODB_URI=
+MONGODB_DB=
+AUTH0_DOMAIN=
+AUTH0_CLIENT_ID=
+AUTH0_CLIENT_SECRET=` 
+```
+Run the development server:
 
- - [x] A clean UI for recent articles
- - [x] Authentication
- - [x] Search
- - [x] Categories
- - [x] Markdown Editor for creating articles
- - [x] Download Articles
- - [x] PWA
- - [x] Responsive
- ### Technologies/Frameworks/Libraries used
- - Next.js
- - Preact
- - MongoDB
- - Ant Design
- - Limax
- - Hexoid
- - markdown-it
- 
- ### Environment variables - 
- 
+`npm run dev` 
 
-	MONGODB_URI=
-	MONGODB_DB=
-	AUTH0_DOMAIN = 
-	AUTH0_CLIENT_ID = 
-	AUTH0_CLIENT_SECRET = 
-initialise with your values in .env.local
-### How to Run
-- First run `npm install`
-- Add environment variables
-- Development server - `npm run dev`
-- Production server - `npm run build`
+For a production build:
 
-### Deploy
-- Can be deployed using vercel.com 
-- just import this project 
+`npm run build` 
 
+## Deployment 🌐
 
+Deploy on [Vercel](https://vercel.com/):
 
+-   Import this project and follow the prompts.
+
+Feel free to contribute, and make sure to star the repo if you like it! ⭐
